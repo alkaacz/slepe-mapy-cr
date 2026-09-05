@@ -41,7 +41,9 @@ Server ukončíš v terminálu klávesovou zkratkou `Ctrl+C`.
 └── data/
     ├── outline-cr.json  # obrys ČR + orientační města (sdíleno všemi režimy)
     ├── reky.json        # řeky jako linky (typ "path")
-    └── vodni-dila.json  # přehrady/nádrže jako body (typ "point")
+    ├── vodni-dila.json  # přehrady/nádrže jako body (typ "point")
+    ├── mesta-kraje.json  # 13 krajských měst jako body (typ "point")
+    └── mesta-okresy.json # 71 bývalých okresních měst jako body (typ "point")
 ```
 
 ## Zdroje dat
@@ -49,6 +51,7 @@ Server ukončíš v terminálu klávesovou zkratkou `Ctrl+C`.
 - **Obrys ČR** (`outline-cr.json`, pole `outline`) a **trasy řek** (`reky.json`) vycházejí z reálných geografických dat projektu [Natural Earth](https://www.naturalearthdata.com/) (veřejná doména / public domain). Původní souřadnice (lon/lat) jsou promítnuty jednoduchou projekcí do souřadného systému SVG plátna 760×460 použitého v mapě.
 - **Orientační města** (`outline-cr.json`, pole `cities`) jsou přibližné polohy větších měst, ručně dosazené do stejné souřadné soustavy jako obrys.
 - **Vodní díla** (`vodni-dila.json`) jsou ručně vybraná největší česká přehrady a nádrže; jejich poloha na plátně je odhadnutá podle skutečného umístění vzhledem k obrysu ČR a řekám, ne z konkrétní geodatabáze.
+- **Města** (`mesta-kraje.json`, `mesta-okresy.json`) obsahují krajská města a bývalá okresní města (seznam 76 okresů minus 5 okresů, jejichž úřad sídlil ve stejném městě jako jiný okres už v seznamu — Praha-východ/západ, Plzeň-sever/jih, Brno-venkov — protože by jejich bod na mapě splynul s existujícím a nešlo by ho rozkliknout zvlášť). Souřadnice měst jsou dopočítané z reálných zeměpisných souřadnic (lat/lon) jednoduchou lineární projekcí napasovanou na 8 měst už dříve umístěných v `outline-cr.json`, takže odpovídají stejnému souřadnému systému. Level obcí s rozšířenou působností (ORP, 205 obcí) zatím chybí — je připraven jako deaktivovaná dlaždice v `index.html`.
 
 Protože všechna data jsou uložena rovnou v souřadnicích plátna (ne jako GeoJSON), nejde je zpětně přesně namapovat na originální zdroj — při rozšiřování o nové vrstvy je nejjednodušší postupovat podle návodu níže.
 
