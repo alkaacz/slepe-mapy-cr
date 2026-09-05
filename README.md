@@ -1,0 +1,1 @@
+# slepe-mapy-cr
