@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Slepá mapa Česka</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="wrap" id="app">
+    <div class="top-bar">
+      <div>
+        <h1 id="mode-title">Slepá mapa Česka</h1>
+        <a class="back-link" href="index.html">← zpět na výběr kategorie</a>
+      </div>
+      <div id="score"></div>
+    </div>
+
+    <div class="game-layout">
+      <div class="map-panel">
+        <svg id="map-svg" xmlns="http://www.w3.org/2000/svg"></svg>
+      </div>
+
+      <div class="side-panel">
+        <div class="panel-card" id="panel"></div>
+
+        <div class="info-card">
+          <div class="info-title">Nápověda</div>
+          <div>Klikni na naznačený prvek na mapě a napiš, jak se jmenuje.</div>
+          <div style="margin-top: 8px; color: #9a917a">
+            Šedá města slouží jen pro orientaci, nejsou součástí kvízu.
+          </div>
+        </div>
+
+        <button id="btn-reset" class="btn-ghost">Začít od začátku</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/modes.js"></script>
+  <script src="js/map-core.js"></script>
+</body>
+</html>
