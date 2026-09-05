@@ -44,7 +44,13 @@ Server ukončíš v terminálu klávesovou zkratkou `Ctrl+C`.
     └── vodni-dila.json  # přehrady/nádrže jako body (typ "point")
 ```
 
-Obrys ČR i trasy řek vycházejí z reálných geografických dat (Natural Earth), promítnutých do souřadnic 760×460.
+## Zdroje dat
+
+- **Obrys ČR** (`outline-cr.json`, pole `outline`) a **trasy řek** (`reky.json`) vycházejí z reálných geografických dat projektu [Natural Earth](https://www.naturalearthdata.com/) (veřejná doména / public domain). Původní souřadnice (lon/lat) jsou promítnuty jednoduchou projekcí do souřadného systému SVG plátna 760×460 použitého v mapě.
+- **Orientační města** (`outline-cr.json`, pole `cities`) jsou přibližné polohy větších měst, ručně dosazené do stejné souřadné soustavy jako obrys.
+- **Vodní díla** (`vodni-dila.json`) jsou ručně vybraná největší česká přehrady a nádrže; jejich poloha na plátně je odhadnutá podle skutečného umístění vzhledem k obrysu ČR a řekám, ne z konkrétní geodatabáze.
+
+Protože všechna data jsou uložena rovnou v souřadnicích plátna (ne jako GeoJSON), nejde je zpětně přesně namapovat na originální zdroj — při rozšiřování o nové vrstvy je nejjednodušší postupovat podle návodu níže.
 
 ## Přidání nové kategorie (např. „Kraje“)
 
