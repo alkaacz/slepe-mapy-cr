@@ -199,6 +199,10 @@ a {
   cursor: default;
 }
 
+.cities {
+  pointer-events: none;
+}
+
 .city-dot {
   fill: #8a8272;
   opacity: 0.55;

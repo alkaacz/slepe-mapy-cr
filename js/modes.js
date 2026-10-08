@@ -13,6 +13,18 @@ const MODES = {
     itemLabelRiver: "vodní dílo",
     prompt: "Jak se jmenuje toto vodní dílo?",
   },
+  "mesta-kraje": {
+    title: "Města — krajská",
+    dataFile: "data/mesta-kraje.json",
+    itemLabelRiver: "město",
+    prompt: "Jak se jmenuje toto město?",
+  },
+  "mesta-okresy": {
+    title: "Města — okresní",
+    dataFile: "data/mesta-okresy.json",
+    itemLabelRiver: "město",
+    prompt: "Jak se jmenuje toto město?",
+  },
 };
 
-const MODE_ORDER = ["reky", "vodni-dila"];
+const MODE_ORDER = ["reky", "vodni-dila", "mesta-kraje", "mesta-okresy"];
