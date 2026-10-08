@@ -1,5 +1,5 @@
 # Slepá mapa Česka
-
+Edit
 Interaktivní slepá mapa ČR — klikneš na naznačenou řeku nebo vodní dílo a doplníš jeho název. Bez přihlašování, bez backendu, čisté HTML/CSS/JS.
 
 Odkaz: [https://<tvuj-ucet>.github.io/slepe-mapy-cr](https://alkaacz.github.io/slepe-mapy-cr/)
