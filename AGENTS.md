@@ -5,8 +5,11 @@ Tento repozitář obsahuje interaktivní slepou mapu Česka. Zachovávejte jeho 
 ## Pravidla práce
 
 - Před změnou si přečtěte `README.md` a relevantní zdrojové soubory.
-- Preferujte vlastní větev a změny předkládejte ke kontrole prostřednictvím pull requestu.
+- Uživatel určuje zadání; agent provede cílenou změnu a popíše její rozsah i případné neověřené předpoklady.
+- Pokud na návrhu spolupracuje více agentů, jiný agent návrh nezávisle připomínkuje před předložením ke schválení.
+- Pracujte ve vlastní větvi a změny do `main` předkládejte prostřednictvím pull requestu. Sloučení pull requestu do `main` vyžaduje schválení člověkem.
 - Změny udržujte úzce zaměřené a nezasahujte do nesouvisejících souborů.
+- Preferujte nejmenší potřebná oprávnění a přístup pouze pro čtení, pokud stačí; neprovádějte nevratné ani externí akce bez výslovného schválení člověkem.
 - Před commitem ověřte, že upravené JSON soubory jsou validní a odkazy na soubory odpovídají skutečné struktuře repozitáře.
 - Nikdy neukládejte tokeny, hesla ani jiné citlivé údaje do repozitáře.
 - Git historii používejte jako audit změn; již zveřejněné commity nepřepisujte.
