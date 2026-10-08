@@ -38,12 +38,14 @@ Server ukončíš v terminálu klávesovou zkratkou `Ctrl+C`.
 ├── js/
 │   ├── modes.js         # registr kategorií (název, datový soubor, texty)
 │   └── map-core.js      # vykreslení mapy, klikání, vyhodnocení, skóre
+├── scripts/
+│   └── validate-city-data.js # kontrola JSON dat měst
 └── data/
     ├── outline-cr.json  # obrys ČR + orientační města (sdíleno všemi režimy)
     ├── reky.json        # řeky jako linky (typ "path")
     ├── vodni-dila.json  # přehrady/nádrže jako body (typ "point")
     ├── mesta-kraje.json  # 13 krajských měst jako body (typ "point")
-    └── mesta-okresy.json # 71 bývalých okresních měst jako body (typ "point")
+    └── mesta-okresy.json # 72 bývalých okresních měst jako body (typ "point")
 ```
 
 ## Zdroje dat
@@ -51,9 +53,17 @@ Server ukončíš v terminálu klávesovou zkratkou `Ctrl+C`.
 - **Obrys ČR** (`outline-cr.json`, pole `outline`) a **trasy řek** (`reky.json`) vycházejí z reálných geografických dat projektu [Natural Earth](https://www.naturalearthdata.com/) (veřejná doména / public domain). Původní souřadnice (lon/lat) jsou promítnuty jednoduchou projekcí do souřadného systému SVG plátna 760×460 použitého v mapě.
 - **Orientační města** (`outline-cr.json`, pole `cities`) jsou přibližné polohy větších měst, ručně dosazené do stejné souřadné soustavy jako obrys.
 - **Vodní díla** (`vodni-dila.json`) jsou ručně vybraná největší česká přehrady a nádrže; jejich poloha na plátně je odhadnutá podle skutečného umístění vzhledem k obrysu ČR a řekám, ne z konkrétní geodatabáze.
-- **Města** (`mesta-kraje.json`, `mesta-okresy.json`) obsahují krajská města a bývalá okresní města (seznam 76 okresů minus 5 okresů, jejichž úřad sídlil ve stejném městě jako jiný okres už v seznamu — Praha-východ/západ, Plzeň-sever/jih, Brno-venkov — protože by jejich bod na mapě splynul s existujícím a nešlo by ho rozkliknout zvlášť). Souřadnice měst jsou dopočítané z reálných zeměpisných souřadnic (lat/lon) jednoduchou lineární projekcí napasovanou na 8 měst už dříve umístěných v `outline-cr.json`, takže odpovídají stejnému souřadnému systému. Level obcí s rozšířenou působností (ORP, 205 obcí) zatím chybí — je připraven jako deaktivovaná dlaždice v `index.html`.
+- **Města** (`mesta-kraje.json`, `mesta-okresy.json`) obsahují krajská města a 72 jedinečných sídel bývalých okresů. Okresní města vycházejí z [historického seznamu okresních měst](https://cs.wikipedia.org/wiki/Okresn%C3%AD_m%C4%9Bsto): okresy se stejným sídlem sdílejí jeden bod (Praha-východ/západ → Praha, Plzeň-město/sever/jih → Plzeň, Brno-město/venkov → Brno). Praha se počítá jako sdílené sídlo okresů Praha-východ a Praha-západ, nikoli jako samostatný okres. Souřadnice měst jsou dopočítané z reálných zeměpisných souřadnic (lat/lon) jednoduchou lineární projekcí napasovanou na 8 měst už dříve umístěných v `outline-cr.json`, takže odpovídají stejnému souřadnému systému. Level obcí s rozšířenou působností (ORP, 205 obcí) zatím chybí — je připraven jako deaktivovaná dlaždice v `index.html`.
 
 Protože všechna data jsou uložena rovnou v souřadnicích plátna (ne jako GeoJSON), nejde je zpětně přesně namapovat na originální zdroj — při rozšiřování o nové vrstvy je nejjednodušší postupovat podle návodu níže.
+
+Před commitem dat měst lze spustit jejich kontrolu:
+
+```sh
+node scripts/validate-city-data.js
+```
+
+Kontrola ověřuje validitu JSON, jedinečnost názvů a odpovědí po normalizaci a souřadnice v mezích plátna 760×460.
 
 ## Přidání nové kategorie (např. „Kraje“)
 
